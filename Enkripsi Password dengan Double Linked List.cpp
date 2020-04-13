@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
 using namespace std;
 
 typedef struct node
@@ -111,6 +110,37 @@ void Enkripsi()
 	batas++;
 }
 
+void Deskripsi()
+{
+	list bantu, hapus;
+	hapus = bantu = head;
+	for (int x = 1; x <= 3; x++)
+	{
+		hapus = hapus->next;
+	}
+	hapus->prev->next = hapus->next;
+	hapus->next->prev = hapus->prev;
+	delete hapus;
+	batas--;
+
+	for (int x = 1; x <= 3; x++)
+	{
+		bantu = bantu->next;
+	}
+	bantu->prev->next = NULL;
+	bantu->prev = NULL;
+	head = bantu;
+
+	bantu = head;
+	do
+	{
+		bantu = bantu->next;
+	} while (bantu->next != NULL);
+	tail = bantu;
+	head->prev = tail;
+	tail->next = head;
+}
+
 int main()
 {
 	initData();
@@ -125,7 +155,8 @@ int main()
         cout << "1. Input Password\n";
         cout << "2. Tampilkan Password\n";
         cout << "3. Enkripsi Password Data\n";
-        cout << "4. Keluar dari Program\n\nPilihan: ";
+        cout << "4. Desripsi Password Data\n";
+        cout << "5. Keluar Program\n";S
         cin >> pilihan;
 
         switch (pilihan)
@@ -134,9 +165,9 @@ int main()
             {
                 cout << "Masukkan Panjang Password: ";
                 cin >> batas;
-                if (batas < 6)
+                if(batas <= 6)
                 {
-                cout << "Panjang Password Harus Lebih Besar Sama Dengan 6!! \n\n";
+                cout << "Panjang Password Tidak Boleh Kurang Dari 6";
                 break;
                 }
                 else
@@ -195,10 +226,21 @@ int main()
                     system("pause");
                     break;
                     }
+            case 4:
+            {
+                    cout << "Password Asli: ";
+                    tampilListBaru();
+                    Deskripsi();
+                    cout << "\nPassword Setelah Di Deskripsi: ";
+                    tampilListBaru();
+                    cout << endl << endl;
+                    system("pause");
+                    break;
+                    }
             default:
                 cout<<"Input anda salah"<<endl;
                 break;
         }
-    }while(pilihan != 4);
+    }while(pilihan !=5);
      return 0;
 }
