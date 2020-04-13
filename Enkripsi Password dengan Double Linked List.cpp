@@ -141,6 +141,11 @@ void Deskripsi()
 	tail->next = head;
 }
 
+void KeluarProgram()
+{
+	cout << "Anda Keluar Program \n\n";
+}
+
 int main()
 {
 	initData();
@@ -155,8 +160,8 @@ int main()
         cout << "1. Input Password\n";
         cout << "2. Tampilkan Password\n";
         cout << "3. Enkripsi Password Data\n";
-        cout << "4. Desripsi Password Data\n";
-        cout << "5. Keluar Program\n";S
+        cout << "4. Deskripsi Password\n";
+        cout << "5. Keluar dari Program\n\nPilihan: ";
         cin >> pilihan;
 
         switch (pilihan)
@@ -165,7 +170,7 @@ int main()
             {
                 cout << "Masukkan Panjang Password: ";
                 cin >> batas;
-                if(batas <= 6)
+                if(batas < 6)
                 {
                 cout << "Panjang Password Tidak Boleh Kurang Dari 6";
                 break;
