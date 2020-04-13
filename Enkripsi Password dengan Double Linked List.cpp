@@ -199,6 +199,6 @@ int main()
                 cout<<"Input anda salah"<<endl;
                 break;
         }
-    }while(pilihan =!4);
+    }while(pilihan != 4);
      return 0;
 }
