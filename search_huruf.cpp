@@ -17,7 +17,7 @@ int main(){
 
     char data[25], cari, ganti;
 
-    cout << "\n    Program Replace Kalimat";
+    cout << "\nProgram Replace Kalimat";
 
     cout << "\n\nMasukkan sebuah kalimat : ";
     cin >> data;
